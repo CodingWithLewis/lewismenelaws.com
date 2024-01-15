@@ -1,0 +1,75 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title="Author - Blog"
+  description="Your site description goes here"
+  canonical="https://www.lexingtonthemes.com"
+  openGraph={{
+    url: "https://www.lexingtonthemes.com",
+    title: "Author - Blog",
+    description: "Your site description goes here",
+    images: [
+      {
+        url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Social open graph",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg",
+        width: 4096,
+        height: 4096,
+        alt: "Twitter open graph",
+        type: "image/jpeg",
+      },
+      { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
+      { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
+    ],
+    site_name: "YourSitesName",
+  }}
+  twitter={{
+    handle: "@TwitterHandle",
+    site: "@site",
+    cardType: "summary_large_image",
+  }}
+/>
+<BaseLayout>
+  <section class="overflow-hidden relative bg-black">
+    <div class="px-8 mx-auto max-w-7xl lg:px-24 py-24">
+      <div
+        class="lg:mt-8 max-w-5xl prose hover:prose-a:text-blue-300 prose-a:text-white prose-a:underline prose-blockquote:border-l-2 prose-blockquote:font-light prose-blockquote:text-white/50 prose-code:text-white prose-figcaption:pb-6 prose-figcaption:text-blue-300 prose-figcaption:text-base prose-h1:font-semibold prose-h1:lg:text-8xl prose-h1:text-5xl prose-h1:tracking-tighter prose-h4:lg:text-2xl prose-h4:text-xl prose-headings:font-mono prose-headings:text-white prose-img:aspect-square prose-img:object-cover prose-img:w-full prose-li:lg:text-xl prose-li:marker:text-white prose-li:text-lg prose-mark:bg-blue-300 prose-p:lg:text-xl prose-p:text-lg prose-strong:text-white space-y-6 text-white/70 prose-table:divide-white/20">
+        <h1>{frontmatter.title}</h1>
+        <p><em>{frontmatter.description}</em></p>
+        <p class="space-x-3">
+          <small class="italic"
+            >{frontmatter.pubDate.toString().slice(0, 10)}</small
+          >
+          <small class="italic">Written by: {frontmatter.author}</small>
+        </p>
+
+        <div class="not-prose flex flex-wrap space-x-3">
+          {
+            frontmatter.tags.map((tag) => (
+              <span class="inline-flex items-center font-mono    text-sm font-medium text-white underline hover:text-blue-300">
+                <a href={`/tags/${tag}`}>{tag}</a>
+              </span>
+            ))
+          }
+        </div>
+        <div class="not-prose w-full">
+          <a
+            class="hover:text-white font-medium duration-2 rounded-full focus:outline-none focus:shadow-none text-blue-300 border md:my-0 px-4 py-2 text-xs"
+            href="#"
+            >Share
+          </a>
+        </div>
+        <div class="border-t border-white/20 max-w-2xl"><slot /></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

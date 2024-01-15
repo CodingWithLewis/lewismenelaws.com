@@ -1,0 +1,92 @@
+---
+import { projects } from "../../data/projects.json";
+---
+
+<main aria-labelledby="header" class="relative overflow-hidden">
+  <h2 class="sr-only" id="header">Header</h2><div
+    class="max-w-6xl px-8 mx-auto py-12 lg:pt-28">
+    <div>
+      <h1
+        class="text-white mt-4 font-semibold text-5xl lg:text-8xl tracking-tighter">
+        Projects
+      </h1>
+      <div class="lg:mt-8 max-w-2xl">
+        <p class="text-lg lg:text-2xl text-white">
+          You don't have to spend all your time thinking about what you're
+          doing, you just let it happen. No worries.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+<section>
+  <div class="max-w-6xl px-8 mx-auto py-12">
+    <div class="space-y-6 max-w-5xl">
+      {
+        projects.map((template) => (
+          <>
+            <article class="grid items-center grid-cols-1 lg:grid-cols-4 p-4 lg:p-10 bg-[#18161a] text-white">
+              <div class="lg:col-span-3">
+                <div class="mt-8 max-w-2xl space-y-6">
+                  <h4 class="text-lg lg:text-6xl">{template.title}</h4>
+                  <p class="text-xl lg:text-2xl">{template.description}</p>
+                  <div class="mt-6">
+                    <a
+                      class="duration-200 group inline-flex items-center hover:text-white lg:text-2xl text-white"
+                      href={template.url}
+                      aria-label="visit project">
+                      Check it out!{" "}
+                      <span class="ml-3" aria-hidden="true">
+                        <svg
+                          class="w-12 h-5 duration-200 -ml-3 group-hover:ml-6 transform"
+                          viewBox="0 0 30 13"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <line
+                            class="duration-200 group-hover:text-white text-transparent"
+                            x1="0.315787"
+                            y1="6.3409"
+                            x2="29.6842"
+                            y2="6.3409"
+                            stroke="currentColor"
+                            stroke-width="1"
+                          />
+                          <path
+                            class="duration-200 group-hover:text-white"
+                            d="M29.6842 6.00718C28.8953 6.00718 28.1142 5.8518 27.3854 5.54991C26.6565 5.24802 25.9943 4.80553 25.4365 4.24772C24.8787 3.6899 24.4362 3.02767 24.1343 2.29885C23.8324 1.57002 23.677 0.788874 23.677 0"
+                            stroke="currentColor"
+                            stroke-width="1"
+                          />
+                          <path
+                            class="duration-200 group-hover:text-white"
+                            d="M29.6842 6.67464C28.8953 6.67464 28.1142 6.83002 27.3854 7.13191C26.6565 7.4338 25.9943 7.87628 25.4365 8.4341C24.8787 8.99192 24.4362 9.65414 24.1343 10.383C23.8324 11.1118 23.677 11.8929 23.677 12.6818"
+                            stroke="currentColor"
+                            stroke-width="1"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:ml-auto">
+                <div class="flex items-center mt-6">
+                  <article class="">
+                    <img
+                      class="w-full aspect-square object-cover border border-white/20 bg-black"
+                      src={template.image}
+                      alt={template.description}
+                      width="1310"
+                      height="873"
+                    />
+                    <figcaption class="sr-only">{template.title}</figcaption>
+                  </article>
+                </div>
+              </div>
+            </article>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/landing/Hero.astro";
+import EntriesTwo from "../components/entries/EntriesTwo.astro";
+import Subscribe from "../components/forms/Subscribe.astro";
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title="Lewis Menelaws Blog - Coding with Lewis"
+  description="The Blog of Lewis Menelaws / Coding with Lewis"
+  canonical="https://lewismenelaws.com"
+  openGraph={{
+    url: "https://lewismenelaws.com",
+    title: "Lewis Menelaws Blog - Coding with Lewis",
+    description: "Coding with Lewis",
+  }}
+/>
+<BaseLayout>
+  <Hero />
+
+  <section>
+    <div class="max-w-6xl mx-auto px-8 py-12">
+      <div class="gap-12 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 py-12">
+        <div class="gap-3 col-span-2 lg:col-span-3 divide-y divide-white/20">
+          {
+            allPosts
+              .slice()
+              .map((post) => (
+                <EntriesTwo
+                  url={"/posts/" + post.slug}
+                  title={post.data.title}
+                  description={post.data.description}
+                  alt={post.data.title}
+                  pubDate={post.data.pubDate.toString().slice(0, 10)}
+                  author={post.data.author}
+                  image={post.data.image.url}
+                />
+              ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <Subscribe />
+</BaseLayout>

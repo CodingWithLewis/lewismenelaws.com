@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("posts");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <section aria-labelledby="header" class="relative overflow-hidden">
+    <div class="overflow-hidden relative">
+      <div class="px-8 mx-auto max-w-7xl lg:px-24 py-24">
+        <h1
+          class="text-white mt-4 font-semibold text-5xl lg:text-8xl tracking-tighter">
+          Blog post tagged with:
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="px-8 mx-auto max-w-7xl lg:px-24 py-24">
+      <ol role="list" class="space-y-3">
+        <li>
+          <ol role="list">
+            {
+              posts.map((post) => (
+                <li aria-label="#">
+                  <span>
+                    <BlogPost
+                      url={"/posts/" + post.slug}
+                      title={post.data.title}
+                    />
+                  </span>
+                </li>
+              ))
+            }
+          </ol>
+        </li>
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

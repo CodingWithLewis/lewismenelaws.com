@@ -1,0 +1,20 @@
+---
+const { title, url, description, pubDate, author, image } = Astro.props;
+---
+
+<div class="w-full mx-auto h-full items-center">
+  <a class="group" href={url} title={title}
+    ><img class="w-full aspect-square object-cover" src={image} alt={title} />
+    <p class="mt-6 text-zinc-400 font-light text-xs">
+      <time datetime={pubDate}>{pubDate}</time> by {author}
+    </p>
+    <p
+      class="text-white font-medium mt-3 group-hover:text-blue-400 text-xl lg:text-xl">
+      {title}
+    </p>
+    <p
+      class="mt-6 text-zinc-400 font-normal line-clamp-2 text-base leading-snug">
+      {description}
+    </p>
+  </a>
+</div>

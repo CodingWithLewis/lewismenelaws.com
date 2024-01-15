@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Author from "../components/infopages/Author.astro";
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title="About Me | Coding with Lewis / Lewis Menelaws"
+  description="About Lewis Menelaws / Coding with Lewis. I make videos online about programming and software development."
+  canonical="https://lewismenelaws.com"
+  openGraph={{
+    url: "https://lewismenelaws.com",
+    title: "Lewis Menelaws / Coding with Lewis",
+    description: "Lewis Menelaws Personal Website",
+    site_name: "LewisMenelaws",
+  }}
+  twitter={{
+    handle: "@LewisMenelaws",
+    site: "@site",
+    cardType: "summary_large_image",
+  }}
+/>
+<BaseLayout>
+  <Author />
+</BaseLayout>

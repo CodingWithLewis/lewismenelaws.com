@@ -1,0 +1,61 @@
+<div class="mx-auto w-full bg-black justify-center">
+  <div
+    class="mx-auto w-full flex flex-col lg:flex-row lg:items-center lg:justify-between px-8 max-w-7xl lg:px-24 py-6 lg:py-16"
+    x-data="{ open: false }">
+    <div class="text-white items-center flex justify-between flex-row">
+      <a
+        class="text-white items-center gap-3 inline-flex tracking-tighter"
+        href="/"
+        ><span>Lewis Menelaws</span>
+      </a>
+      <button
+        class="rounded-lg focus:outline-none focus:shadow-outline lg:hidden"
+        @click="open = !open"
+        ><svg
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            :class="{'hidden': open, 'inline-flex': !open }"
+            class="inline-flex"
+            d="M4 6h16M4 12h16M4 18h16"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"></path><path
+            :class="{'hidden': !open, 'inline-flex': open }"
+            class="hidden"
+            d="M6 18L18 6M6 6l12 12"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"></path>
+        </svg>
+      </button>
+    </div>
+    <nav
+      :class="{'flex': open, 'hidden': !open}"
+      class="flex-col items-center flex-grow hidden lg:flex lg:flex-row lg:justify-start lg:mt-0 lg:p-0 lg:px-0 md:pb-0 opacity-100 p-4 px-5">
+      <a
+        class="text-white font-medium duration-2 focus:outline-none focus:shadow-none hover:text-blue-300 md:my-0 px-4 py-2 lg:ml-auto"
+        href="/about"
+        >About
+      </a>
+      <a
+        class="text-white font-medium duration-2 focus:outline-none focus:shadow-none hover:text-blue-300 md:my-0 px-4 py-2"
+        href="/blog"
+        >Blog
+      </a>
+      <a
+        class="text-white font-medium duration-2 focus:outline-none focus:shadow-none hover:text-blue-300 md:my-0 px-4 py-2"
+        href="/projects"
+        >Projects
+      </a>
+      <a
+        class="text-white font-medium duration-2 focus:outline-none focus:shadow-none hover:text-blue-300 md:my-0 px-4 py-2"
+        href="/contact"
+        >Contact
+      </a>
+      
+    </nav>
+  </div>
+</div>

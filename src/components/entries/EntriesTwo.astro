@@ -1,0 +1,24 @@
+---
+const { title, url, description, pubDate, author, image, authorImage } =
+  Astro.props;
+---
+
+<article class="py-12">
+  <a class="group" href={url} title={title}
+    ><div>
+      <div class="group gap-3 inline-flex w-full">
+        <div class="">
+          <p class="text-zinc-500 font-light text-xs">
+            <time datetime={pubDate}> {pubDate}</time> by {author}
+          </p>
+          <p
+            class="text-white font-medium mt-3 group-hover:text-blue-400 text-xl lg:text-7xl">
+            {title}
+          </p><p class="text-zinc-500 mt-6 font-normal lg:text-2xl text-base">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div></a
+  >
+</article>
