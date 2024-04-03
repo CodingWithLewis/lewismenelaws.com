@@ -2,73 +2,107 @@
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 import { AstroSeo } from "@astrolib/seo";
+
+
 ---
 
+<script>
+  import mediumZoom from 'medium-zoom'
+  document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll(" h2,   h3");
+    const tocContainer = document.getElementById("table-of-contents");
+    if (tocContainer && headings.length > 0) {
+      const tocList = document.createElement("ul");
+      tocList.classList.add(
+        "!list-none",
+        "not-prose",
+        "space-y-2",
+        "text-sm",
+        "uppercase"
+      );
+      headings.forEach((heading) => {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.classList.add(
+          "text-white",
+          "hover:text-accent-500",
+          "duration-300"
+        );
+        link.textContent = heading.textContent;
+        link.href = `#${heading.id}`;
+        link.classList.add("text-black", "dark:text-white", "hover:underline");
+        listItem.appendChild(link);
+        tocList.appendChild(listItem);
+      });
+      tocContainer.appendChild(tocList);
+      tocContainer.classList.remove("hidden");
+    }
+  });
+  mediumZoom('[data-zoomable]', {
+    background: "#131115"
+  })
+</script>
+
+
 <AstroSeo
-  title="Author - Blog"
-  description="Your site description goes here"
-  canonical="https://www.lexingtonthemes.com"
+  title=`${frontmatter.title} - Coding with Lewis Menelaws`
+  description=`${frontmatter.description} - Coding with Lewis Menelaws`
+  canonical="https://lewismenelaws.com"
   openGraph={{
-    url: "https://www.lexingtonthemes.com",
-    title: "Author - Blog",
-    description: "Your site description goes here",
-    images: [
-      {
-        url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Social open graph",
-        type: "image/jpeg",
-      },
-      {
-        url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg",
-        width: 4096,
-        height: 4096,
-        alt: "Twitter open graph",
-        type: "image/jpeg",
-      },
-      { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
-      { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
-    ],
-    site_name: "YourSitesName",
+    url: "https://lewismenelaws.com",
+    title: "Coding with Lewis / Lewis Menelaws",
+    description: "Programming, Software and Content Creation by Coding with Lewis.",
+    site_name: "Lewis Menelaws",
   }}
   twitter={{
-    handle: "@TwitterHandle",
-    site: "@site",
+    handle: "@LewisMenelaws",
+    site: "@LewisMenelaws",
     cardType: "summary_large_image",
   }}
 />
-<BaseLayout>
-  <section class="overflow-hidden relative bg-black">
-    <div class="px-8 mx-auto max-w-7xl lg:px-24 py-24">
-      <div
-        class="lg:mt-8 max-w-5xl prose hover:prose-a:text-blue-300 prose-a:text-white prose-a:underline prose-blockquote:border-l-2 prose-blockquote:font-light prose-blockquote:text-white/50 prose-code:text-white prose-figcaption:pb-6 prose-figcaption:text-blue-300 prose-figcaption:text-base prose-h1:font-semibold prose-h1:lg:text-8xl prose-h1:text-5xl prose-h1:tracking-tighter prose-h4:lg:text-2xl prose-h4:text-xl prose-headings:font-mono prose-headings:text-white prose-img:aspect-square prose-img:object-cover prose-img:w-full prose-li:lg:text-xl prose-li:marker:text-white prose-li:text-lg prose-mark:bg-blue-300 prose-p:lg:text-xl prose-p:text-lg prose-strong:text-white space-y-6 text-white/70 prose-table:divide-white/20">
-        <h1>{frontmatter.title}</h1>
-        <p><em>{frontmatter.description}</em></p>
-        <p class="space-x-3">
-          <small class="italic"
-            >{frontmatter.pubDate.toString().slice(0, 10)}</small
-          >
-          <small class="italic">Written by: {frontmatter.author}</small>
-        </p>
 
-        <div class="not-prose flex flex-wrap space-x-3">
-          {
-            frontmatter.tags.map((tag) => (
-              <span class="inline-flex items-center font-mono    text-sm font-medium text-white underline hover:text-blue-300">
-                <a href={`/tags/${tag}`}>{tag}</a>
-              </span>
-            ))
-          }
+<BaseLayout>
+  <section >
+    <div class="px-8 mx-auto max-w-7xl lg:px-24 pt-24">
+      <p class="text-zinc-400">
+        <small class="italic"
+          >{frontmatter.pubDate.toString().slice(0, 10)} /
+        </small>
+        <small class="italic">Written by: {frontmatter.author}</small>
+      </p>
+      <h1
+        class="text-white mt-4 font-semibold text-5xl lg:text-8xl tracking-tight text-balance uppercase"
+      >
+        {frontmatter.title}
+      </h1>
+      <p class="text-lg lg:text-xl text-zinc-400 mt-8">
+        <em>{frontmatter.description}</em>
+      </p>
+      <div class="flex flex-wrap gap-6 mt-12">
+        {
+          frontmatter.tags.map((tag) => (
+            <span class="inline-flex items-center text-sm font-light text-white    hover:text-accent-500">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+   <section >
+    <div class="px-8 mx-auto max-w-7xl lg:px-24 pb-24">
+      <div class="lg:grid lg:grid-cols-12 gap-12 lg:gap-24 border-t border-white/20 mt-6">
+        <div class="lg:col-span-4 relative">
+          <div id="table-of-contents" class="hidden lg:block lg:sticky lg:top-64 space-y-6 mt-6 ">
+           <div class="pb-6 border-b border-white/20"> <p class="text-white uppercase">Table of contents</p></div>
+            <!-- Your table of contents content here -->
+          </div>
         </div>
-        <div class="not-prose w-full">
-          <a
-            class="hover:text-white font-medium duration-2 rounded-full focus:outline-none focus:shadow-none text-blue-300 border md:my-0 px-4 py-2 text-xs"
-            href="#"
-            >Share
-          </a>
+        <div class="lg:col-span-8">
+          <div class="prose-styles">
+            <slot />
+          </div>
         </div>
-        <div class="border-t border-white/20 max-w-2xl"><slot /></div>
       </div>
     </div>
   </section>

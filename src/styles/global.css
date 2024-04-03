@@ -1,10 +1,16 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;mark {
+@tailwind utilities;
+
+mark {
   background-color: #7977f2;
+  color: white;
+  padding: 8px;
 }
 
-
+.prose-styles {
+  @apply prose hover:prose-a:text-accent-300 prose-a:text-white prose-a:underline prose-blockquote:border-l-2 prose-blockquote:font-light prose-blockquote:text-white/50 prose-code:text-white prose-figcaption:pb-6 prose-figcaption:text-accent-300 prose-figcaption:text-base prose-h1:font-semibold prose-h1:lg:text-8xl prose-h1:text-5xl prose-h1:tracking-tight prose-h4:lg:text-2xl prose-h4:text-xl prose-headings:font-mono prose-headings:text-white prose-img:object-cover prose-img:w-full prose-li:lg:text-xl prose-li:marker:text-white prose-li:text-lg  prose-p:lg:text-xl prose-p:text-lg prose-strong:text-white space-y-6 text-white/70;
+}
 :root {
   --astro-code-color-text: #fff;
   --astro-code-color-background: #18161a;

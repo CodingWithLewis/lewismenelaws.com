@@ -2,8 +2,8 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
     fontSize: {
       xs: [
         "0.75rem",
@@ -84,32 +84,34 @@ module.exports = {
         },
       ],
     },
+    fontFamily: {
+      display: ["Familjen Grotesk", ...defaultTheme.fontFamily.sans],
+      sans: ["Familjen Grotesk", ...defaultTheme.fontFamily.sans],
+      mono: ["RX100 ", ...defaultTheme.fontFamily.mono],
+    },
     extend: {
       colors: {
         black: "#131115",
         white: "#d7d7d7",
-        blue: {
-            "50": "#EBEBFF",
-      "100": "#D2D2FE",
-      "200": "#A6A4FE",
-      "300": "#7E7CFD",
-      "400": "#524FFD",
-      "500": "#2522FC",
-      "600": "#0703E2",
-      "700": "#0502AB",
-      "800": "#03026F",
-      "900": "#020137"
+        accent: {
+          50: "hsl(0, 0%, 96%)",
+          100: "hsl(0, 0%, 91%)",
+          200: "hsl(0, 0%, 82%)",
+          300: "hsl(0, 0%, 71%)",
+          400: "hsl(0, 0%, 60%)",
+          500: "hsl(0, 0%, 52%)",
+          600: "hsl(0, 0%, 50%)",
+          700: "hsl(0, 0%, 40%)",
+          800: "hsl(0, 0%, 34%)",
+          900: "hsl(0, 0%, 28%)",
+          950: "hsl(0, 0%, 15%)",
         },
-      },
-      fontFamily: {
-        sans: ["Outfit", ...defaultTheme.fontFamily.sans],
-        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
-	plugins: [
-		 require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-		require('@tailwindcss/aspect-ratio'),
-	],
-}
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
+};
