@@ -1,3 +1,10 @@
+---
+import { Image } from 'astro:assets'
+import pic1 from '../../images/1.jpg'
+import pic2 from '../../images/2.jpg'
+import pic3 from '../../images/3.jpg'
+---
+
 <main aria-labelledby="header" class="relative overflow-hidden">
   <h2 class="sr-only" id="header">Header</h2><div
     class="max-w-6xl px-8 mx-auto py-12 lg:pt-28">
@@ -27,37 +34,21 @@
     <div class="mt-12">
       <div class="grid grid-cols-2 col-span-2 gap-4 lg:grid-cols-3">
         <article>
-          <img
-            class="w-full aspect-square object-cover h-full"
-            src="/public/images/1.jpg"
-            alt=""
-            width="1310"
-            height="540"
-          />
+          <Image src={pic1} alt="Picture of Lewis Menelaws" class="w-full aspect-square object-cover h-full" width={1310} height={540}/>
           <figcaption class="sr-only">
             Lewis Menelaws working at a desk
           </figcaption>
         </article>
         <article class="">
-          <img
-            class="w-full aspect-square object-cover h-full"
-            src="/public/images/2.jpg"
-            alt=""
-            width="1310"
-            height="540"
-          />
+          <Image src={pic2} alt="Picture of Lewis Menelaws" class="w-full aspect-square object-cover h-full" width={1310} height={540}/>
+       
           <figcaption class="sr-only">
             Lewis typing on a keyboard
           </figcaption>
         </article>
         <article class="">
-          <img
-            class="w-full aspect-square object-cover h-full"
-            src="/public/images/3.jpg"
-            alt=""
-            width="1310"
-            height="540"
-          />
+          <Image src={pic3} alt="Picture of Lewis Menelaws" class="w-full aspect-square object-cover h-full" width={1310} height={540}/>
+        
           <figcaption class="sr-only">
             Lewis in Chigago!
           </figcaption>
