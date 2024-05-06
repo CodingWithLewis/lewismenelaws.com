@@ -1,10 +1,15 @@
-import { defineConfig } from "astro/config";
+import {defineConfig} from "astro/config";
 
 import preact from "@astrojs/preact";
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import mediumPlugin from "./src/plugins/mediumplugin.js";
-import sitemap from "@astrojs/sitemap";
 export default defineConfig({
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/noop'
+    }
+  },
   markdown: {
     drafts: true,
     shikiConfig: { theme: "css-variables" },
