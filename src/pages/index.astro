@@ -1,12 +1,15 @@
 ---
+import { AstroSeo } from "@astrolib/seo";
 import { getCollection } from "astro:content";
-const allPosts = await getCollection("posts");
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/landing/Hero.astro";
 import EntriesOne from "../components/entries/EntriesOne.astro";
 import Subscribe from "../components/forms/Subscribe.astro";
-import { AstroSeo } from "@astrolib/seo";
+import Hero from "../components/landing/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = (await getCollection("posts")).sort(
+  (a, b) => Date.parse(b.data.pubDate) - Date.parse(a.data.pubDate)
+);
 ---
+
 <AstroSeo
   title="Lewis Menelaws / Coding with Lewis"
   description="Coding with Lewis is a place to share my ideas about programming, technology and content creation."
