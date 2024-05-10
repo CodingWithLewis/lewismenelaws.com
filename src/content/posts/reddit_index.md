@@ -12,7 +12,7 @@ I'm a white geeky programmer who has been very tech savvy since I was a young ch
 
 I joined in August of 2011 for an account but I am pretty sure I was a lurker since before then too. Social Media networks looked fairly old at the time, but Reddit took the cake for having an archaic design philosophy. Almost all black and white with some pictures.
 
-![Reddit in August of 2011.](./images/reddit2011.png)
+
 
 Despite it's very minimalist look, it was very functional. Having over 10 different links available at me in just my viewport while I can get more from just scrolling was amazing. I am that type of guy who has my gmail in "Compact" mode where I can see more emails on my screen rather than more details. 
 
@@ -20,19 +20,19 @@ All of the simple web standards. Such as, links going purple when you've already
 
 ### The Redesign
 
-![Reddit in 2019](./imgaes/reddit2019.png)
+![Reddit in 2019](/images/reddit2019.png)
 
 [If you go over to r/beta](https://reddit.com/r/beta), you will basically just see a flood of people complaining about anything that the new Reddit offers. I don't think the new design is bad at all. In fact, I think they did a good job in terms of design. I get it. Reddit needs to make money, but I felt like they didn't get rid of much in terms of the visual layout.
 
 That being said, the implementation of that design is a different story. Reddit in 2019 is extremely slow.
 
-![](./images/redditspeed.png)
+![](/images/redditspeed.png)
 
 Doing a Firefox performance test, I averaged 21fps. I use a Macbook Air 2013 model that has 12 GB of RAM and it's just an abysmal speed. In the test, I refreshed the page, clicked on a link and tried scrolling. It's very frustrating with a site like Reddit where you are constantly looking at the next item fast.
 
 ### Banning of r/reddit
 
-![Banned yourself?](./images/rreddit.png)
+![Banned yourself?](/images/rreddit.png)
 
 r/reddit was a subreddit you were subscribed to by default and would cover lots of general topics that were happening today. Instead of images though, it would link to articles or other newspapers explaining the opinion or the live situation. I liked this subreddit because it encouraged conversation and young me at the time (16 years old) was able to learn different viewpoints this way. Arguably, it's why I am so stubborn with finding sources nowadays.
 
@@ -40,7 +40,7 @@ This was why I loved Reddit. I loved reading the comments and getting different 
 
 ### Switch to a media focused consumption platform
 
-![](./images/imgur.png)
+![](/images/imgur.png)
 
 This is not really so much a gripe with Reddit but more with how humans naturally float to these types of platforms. Images, videos, memes, GIF's, the works. When I was on Reddit there were lots of images and memes but enough other less brain numbing content to balance it out. 
 

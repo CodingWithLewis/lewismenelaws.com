@@ -16,7 +16,7 @@ The frontend space isn't slowing down, but I feel like it's at a good level wher
 
 ## First... a reflection of 2019.
 
-![Graphic of someone on a computer.](./images/laptop.jpg)
+![Graphic of someone on a computer.](/images//laptop.jpg)
 
 I will have write more about this soon, but for now. 2019 was a big year for JavaScript. Something I will include in this section but not in my list is TypeScript. I might give TypeScript a go, but for now, I want to acknowledge the adoption that developers had for it in 2019.
 
@@ -76,7 +76,7 @@ For me, it's mostly about troubleshooting. I want to be able to understand a pro
 
 I was also late for SASS as well, and once I started using it, I fell in love immediately. Especially with the `include` syntax. There are lots of CSS in JS libraries to choose from as well.
 
-![Youtube comment talking about how they like CSS in JS.](./images/csscomment.png)
+![Youtube comment talking about how they like CSS in JS.](/images//csscomment.png)
 
 Agreed.
 
